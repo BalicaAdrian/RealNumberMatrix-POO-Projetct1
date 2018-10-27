@@ -21,6 +21,7 @@ class Matrix{
 		friend std::ostream& operator << (std::ostream&, Matrix&);
 		Matrix operator += (Matrix);
 		Matrix operator -= (Matrix);
+		Matrix operator *= (Matrix);
 
 
 
