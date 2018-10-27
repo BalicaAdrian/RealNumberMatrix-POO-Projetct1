@@ -14,10 +14,13 @@ class Matrix{
 		void get_rows();
 		void init();
 		Matrix(int rows = 0,int columns=0);
-		void afis();
+		~Matrix();
+		//void afis();
 
-
-		
+		friend std::istream& operator >> (std::istream&, Matrix&);
+		friend std::ostream& operator << (std::ostream&, Matrix&);
+		Matrix operator += (Matrix);
+		Matrix operator -= (Matrix);
 
 
 
