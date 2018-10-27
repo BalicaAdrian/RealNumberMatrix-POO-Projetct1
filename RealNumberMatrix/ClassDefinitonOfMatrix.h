@@ -19,6 +19,8 @@ class Matrix{
 
 		friend std::istream& operator >> (std::istream&, Matrix&);
 		friend std::ostream& operator << (std::ostream&, Matrix&);
+		friend std::ifstream& operator >> (std::ifstream&, Matrix&);
+		friend std::ofstream& operator <<(std::ofstream&, Matrix&);
 		Matrix operator += (Matrix);
 		Matrix operator -= (Matrix);
 		Matrix operator *= (Matrix);

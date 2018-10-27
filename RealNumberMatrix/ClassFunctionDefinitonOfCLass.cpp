@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ClassDefinitonOfMatrix.h"
 #include<vector>
+#include<fstream>
 
 void Matrix::init()
 {
@@ -112,5 +113,24 @@ std::ostream& operator << (std::ostream& cout, Matrix& Mat)
 			std::cout << "\n";
 		}
 			return cout;
+}
+
+std::ifstream& operator >> (std::ifstream& f, Matrix& Mat) {
+	
+	for (int i = 0; i < Mat.m_rows; i++)
+		for (int j = 0; j < Mat.m_columns; j++)
+			f>>Mat.Matrice[i][j];
+	
+	return f;
+
+}
+std::ofstream& operator <<(std::ofstream& g, Matrix& Mat) {
+	
+	for (int i = 0; i < Mat.m_rows; i++) {
+		for (int j = 0; j < Mat.m_columns; j++)
+			g << Mat.Matrice[i][j] << " ";
+		g << "\n";
+	}
+	return g;
 }
 
