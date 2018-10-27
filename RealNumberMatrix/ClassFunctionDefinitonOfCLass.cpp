@@ -54,6 +54,35 @@ for (int i = 0; i < m_rows; i++)
 	return *this;
 }
 
+Matrix Matrix::operator += (double x) 
+{
+	for (int i = 0; i < m_rows; i++)
+		for (int j = 0; j < m_columns; j++)
+			Matrice[i][j] +=x;
+
+	return *this;
+}
+
+Matrix Matrix::operator -= (double x)
+{
+	for (int i = 0; i < m_rows; i++)
+		for (int j = 0; j < m_columns; j++)
+			Matrice[i][j] -= x;
+
+	return *this;
+}
+
+Matrix Matrix::operator*=(double x)
+{
+	
+	for (int i = 0; i < m_rows; i++)
+		for (int j = 0; j < m_columns; j++)
+
+			Matrice[i][j] = Matrice[i][j] * x;
+	return *this;
+}
+
+
 Matrix Matrix::operator-=(Matrix Mat)
 {
 	if (m_rows != Mat.m_rows || m_columns != Mat.m_columns)

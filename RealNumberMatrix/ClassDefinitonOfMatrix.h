@@ -24,6 +24,9 @@ class Matrix{
 		Matrix operator += (Matrix);
 		Matrix operator -= (Matrix);
 		Matrix operator *= (Matrix);
+		Matrix operator += (double);
+		Matrix operator -= (double);
+		Matrix operator *= (double);
 
 
 
