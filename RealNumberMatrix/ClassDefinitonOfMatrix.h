@@ -43,7 +43,8 @@ class Matrix{
 		friend Matrix operator * (double, Matrix);
 		friend Matrix operator / (Matrix, double);
 		friend Matrix operator / (double, Matrix);
-
+		friend bool operator == (Matrix, Matrix);
+		friend bool operator != (Matrix, Matrix);
 	private:
 		int m_rows;
 		int m_columns;

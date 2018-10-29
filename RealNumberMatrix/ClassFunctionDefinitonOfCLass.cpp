@@ -315,3 +315,20 @@ Matrix operator / (Matrix Mat1, double x)
 		}
 	}
 
+	bool operator == (Matrix Mat1, Matrix Mat2) 
+	{
+		if (Mat1.m_rows != Mat2.m_rows || Mat1.m_columns != Mat2.m_columns)
+			return -1;
+		for (int i = 0; i < Mat1.m_rows; i++)
+			for (int j = 0; j < Mat1.m_columns; j++)
+				if (Mat1.Matrice[i][j] != Mat2.Matrice[i][j])
+					return 0;
+		return 1;
+	}
+
+	bool operator != (Matrix Mat1, Matrix Mat2)
+	{
+		if(Mat1==Mat2)
+					return 0;
+		return 1;
+	}
