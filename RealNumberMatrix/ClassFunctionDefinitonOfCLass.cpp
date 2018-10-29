@@ -252,3 +252,66 @@ Matrix operator - (double x, Matrix Mat1)
 }
 
 
+Matrix operator * (Matrix  Mat1, Matrix Mat2)
+{
+	Matrix Mat3(Mat1);
+	Mat3 *= Mat2;
+	return Mat3;
+}
+
+Matrix operator * (Matrix Mat1, double x)
+{
+	Matrix Mat2(Mat1);
+	Mat2 *= x;
+	return Mat2;
+
+}
+
+Matrix operator * (double x, Matrix Mat1)
+{
+	Matrix Mat2(Mat1);
+	Mat2 *= x;
+	return Mat2;
+
+}
+
+Matrix operator / (Matrix Mat1, double x)
+{ 
+	if (x == 0)
+	{
+		std::cout << "Impartirea este imposibila la 0";
+		
+		Matrix Mat2(Mat1);
+
+		return Mat2;
+	}
+	else
+	{
+		Matrix Mat2(Mat1);
+		for (int i = 0; i < Mat1.m_rows; i++)
+			for (int j = 0; j < Mat1.m_columns; j++)
+				Mat2.Matrice[i][j] = Mat2.Matrice[i][j] / x;
+		return Mat2;
+	}
+}
+
+	Matrix operator / (double x, Matrix Mat1)
+	{
+		if (x == 0)
+		{
+			std::cout << "Impartirea este imposibila la 0";
+			
+			Matrix Mat2(Mat1);
+
+			return Mat2;
+		}
+		else
+		{
+			Matrix Mat2(Mat1);
+			for (int i = 0; i < Mat1.m_rows; i++)
+				for (int j = 0; j < Mat1.m_columns; j++)
+					Mat2.Matrice[i][j] = Mat2.Matrice[i][j] / x;
+			return Mat2;
+		}
+	}
+

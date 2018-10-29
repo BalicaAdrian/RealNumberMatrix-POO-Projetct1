@@ -23,7 +23,7 @@ class Matrix{
 		friend std::istream& operator >> (std::istream&, Matrix&);
 		friend std::ostream& operator << (std::ostream&, Matrix&);
 		friend std::ifstream& operator >> (std::ifstream&, Matrix&);
-		friend std::ofstream& operator <<(std::ofstream&, Matrix&);
+		friend std::ofstream& operator << (std::ofstream&, Matrix&);
 		Matrix operator += (Matrix&);
 		Matrix operator -= (Matrix&);
 		Matrix operator *= (Matrix&);
@@ -38,6 +38,11 @@ class Matrix{
 		friend Matrix operator - (Matrix, Matrix);
 		friend Matrix operator - (Matrix, double);
 		friend Matrix operator - (double, Matrix);
+		friend Matrix operator * (Matrix, Matrix);
+		friend Matrix operator * (Matrix, double);
+		friend Matrix operator * (double, Matrix);
+		friend Matrix operator / (Matrix, double);
+		friend Matrix operator / (double, Matrix);
 
 	private:
 		int m_rows;
