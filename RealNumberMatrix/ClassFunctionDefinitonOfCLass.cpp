@@ -20,7 +20,7 @@ void Matrix::init()
 		std::cout << "\n";
 	}
 }*/
-
+//Constructor Parametrizat
 Matrix::Matrix(int rows,int columns)
 {
 	m_rows = rows;
@@ -31,8 +31,9 @@ Matrix::Matrix(int rows,int columns)
 			if (i == j)
 				Matrice[i][j] = 1;
 }
-
+//Destructor
 Matrix::~Matrix() {
+	
 	for (int i = 0; i < m_rows; i++)
 		Matrice[i].erase(Matrice[i].begin(), Matrice[i].begin()+m_columns);
 	Matrice.erase(Matrice.begin(), Matrice.begin() + m_rows);
@@ -40,7 +41,32 @@ Matrix::~Matrix() {
 		
 }
 
-Matrix Matrix::operator += (Matrix Mat)
+//Constructor de copiere
+Matrix::Matrix(Matrix& Mat) 
+{
+	m_rows = Mat.m_rows;
+	m_columns = Mat.m_columns;
+	init();
+	Matrice = Mat.Matrice;
+
+}
+
+int Matrix::getRows()
+{
+	return m_rows;
+}
+
+int Matrix::getColumns()
+{
+	return m_columns;
+}
+
+double Matrix::getElement(int i, int j)
+{
+	return Matrice[i][j];
+}
+//Overloaded Operators
+Matrix Matrix::operator += (Matrix& Mat)
 {
 	if (m_rows != Mat.m_rows || m_columns != Mat.m_columns)
 	{
@@ -54,7 +80,9 @@ for (int i = 0; i < m_rows; i++)
 	return *this;
 }
 
-Matrix Matrix::operator += (double x) 
+
+
+Matrix Matrix::operator += (double x)
 {
 	for (int i = 0; i < m_rows; i++)
 		for (int j = 0; j < m_columns; j++)
@@ -81,9 +109,20 @@ Matrix Matrix::operator*=(double x)
 			Matrice[i][j] = Matrice[i][j] * x;
 	return *this;
 }
+//Unary operators overloaded
+Matrix Matrix::operator+()
+{
+	return *this;
+}
+
+Matrix Matrix::operator-()
+{
+	return *this;
+}
 
 
-Matrix Matrix::operator-=(Matrix Mat)
+
+Matrix Matrix::operator-=(Matrix& Mat)
 {
 	if (m_rows != Mat.m_rows || m_columns != Mat.m_columns)
 	{
@@ -101,7 +140,7 @@ Matrix Matrix::operator-=(Matrix Mat)
 	
 }
 
-Matrix Matrix::operator*=(Matrix Mat)
+Matrix Matrix::operator*=(Matrix& Mat)
 {
 	if ( m_columns != Mat.m_rows)
 	{
@@ -126,6 +165,7 @@ Matrix Matrix::operator*=(Matrix Mat)
 }
 
 
+//Read and write operators
 std::istream& operator >> (std::istream& cin, Matrix& Mat)
 {
 	for (int i=0; i < Mat.m_rows; i++)
@@ -162,4 +202,53 @@ std::ofstream& operator <<(std::ofstream& g, Matrix& Mat) {
 	}
 	return g;
 }
+
+//Binary operators
+Matrix operator + (Matrix  Mat1, Matrix Mat2)
+{
+	Matrix Mat3(Mat1);
+	Mat3 += Mat2;
+	return Mat3;
+}
+
+Matrix operator + (Matrix Mat1, double x)
+{
+	Matrix Mat2(Mat1);
+	Mat2 += x;
+	return Mat2;
+
+}
+
+Matrix operator + (double x, Matrix Mat1)
+{
+	Matrix Mat2(Mat1);
+	Mat2 += x;
+	return Mat2;
+
+}
+
+
+Matrix operator - (Matrix  Mat1, Matrix Mat2)
+{
+	Matrix Mat3(Mat1);
+	Mat3 -= Mat2;
+	return Mat3;
+}
+
+Matrix operator - (Matrix Mat1, double x)
+{
+	Matrix Mat2(Mat1);
+	Mat2 -= x;
+	return Mat2;
+
+}
+
+Matrix operator - (double x, Matrix Mat1)
+{
+	Matrix Mat2(Mat1);
+	Mat2 -= x;
+	return Mat2;
+
+}
+
 

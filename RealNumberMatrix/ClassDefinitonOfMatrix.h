@@ -14,22 +14,30 @@ class Matrix{
 		void get_rows();
 		void init();
 		Matrix(int rows = 0,int columns=0);
+		Matrix(Matrix&);
 		~Matrix();
 		//void afis();
-
+		int getRows();
+		int getColumns();
+		double getElement(int,int);
 		friend std::istream& operator >> (std::istream&, Matrix&);
 		friend std::ostream& operator << (std::ostream&, Matrix&);
 		friend std::ifstream& operator >> (std::ifstream&, Matrix&);
 		friend std::ofstream& operator <<(std::ofstream&, Matrix&);
-		Matrix operator += (Matrix);
-		Matrix operator -= (Matrix);
-		Matrix operator *= (Matrix);
+		Matrix operator += (Matrix&);
+		Matrix operator -= (Matrix&);
+		Matrix operator *= (Matrix&);
 		Matrix operator += (double);
 		Matrix operator -= (double);
 		Matrix operator *= (double);
-
-
-
+		Matrix operator + ();
+		Matrix operator - ();
+		friend Matrix operator + (Matrix, Matrix);
+		friend Matrix operator + (Matrix, double);
+		friend Matrix operator + (double, Matrix);
+		friend Matrix operator - (Matrix, Matrix);
+		friend Matrix operator - (Matrix, double);
+		friend Matrix operator - (double, Matrix);
 
 	private:
 		int m_rows;
