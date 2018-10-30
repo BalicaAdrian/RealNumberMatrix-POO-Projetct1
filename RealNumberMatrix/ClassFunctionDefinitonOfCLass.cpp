@@ -315,6 +315,32 @@ Matrix operator / (Matrix Mat1, double x)
 		}
 	}
 
+	Matrix operator ^ (Matrix Mat1,double x)
+	{
+		if (Mat1.m_rows != Mat1.m_columns)
+			throw std::exception();
+		if (x < 0)
+			throw std::exception();
+		if (x == 0)
+		{
+			Matrix Mat2;
+			return Mat2;
+		}
+		else if (x == 1)
+		{
+			return Mat1;
+		}
+		else 
+		{
+			Matrix Mat2(Mat1);
+			for (int i = 2; i <= x; i++)
+				Mat2 *= Mat1;
+			
+			return Mat2;
+
+		}
+	}
+
 	bool operator == (Matrix Mat1, Matrix Mat2) 
 	{
 		if (Mat1.m_rows != Mat2.m_rows || Mat1.m_columns != Mat2.m_columns)

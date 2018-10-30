@@ -13,7 +13,7 @@ class Matrix{
 		void get_columns();
 		void get_rows();
 		void init();
-		Matrix(int rows = 0,int columns=0);
+		Matrix(int rows = 1,int columns=1);
 		Matrix(Matrix&);
 		~Matrix();
 		//void afis();
@@ -43,6 +43,7 @@ class Matrix{
 		friend Matrix operator * (double, Matrix);
 		friend Matrix operator / (Matrix, double);
 		friend Matrix operator / (double, Matrix);
+		friend Matrix operator ^ (Matrix,double);
 		friend bool operator == (Matrix, Matrix);
 		friend bool operator != (Matrix, Matrix);
 	private:
