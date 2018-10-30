@@ -46,6 +46,7 @@ class Matrix{
 		friend Matrix operator ^ (Matrix,double);
 		friend bool operator == (Matrix, Matrix);
 		friend bool operator != (Matrix, Matrix);
+		Matrix operator [](int);
 	private:
 		int m_rows;
 		int m_columns;

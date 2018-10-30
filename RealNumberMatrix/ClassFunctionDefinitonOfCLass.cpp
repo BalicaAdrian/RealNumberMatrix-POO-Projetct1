@@ -358,3 +358,26 @@ Matrix operator / (Matrix Mat1, double x)
 					return 0;
 		return 1;
 	}
+
+	Matrix Matrix::operator [] (int x)
+	{
+		if (x<0 || x>m_rows)
+			throw std::exception();
+		if (m_rows == 1)
+		{
+			Matrix Mat;
+			Mat.Matrice[0][0] = Matrice[0][x];
+			return Mat;
+		}
+
+		if (m_columns == 1)
+		{
+			Matrix Mat;
+			Mat.Matrice[0][0] = Matrice[x][0];
+			return Mat;
+		}
+		Matrix Mat(1, m_columns);
+			for (int j = 0; j < m_columns; j++)
+				Mat.Matrice[0][j] = Matrice[x][j];
+		return Mat;
+	}
