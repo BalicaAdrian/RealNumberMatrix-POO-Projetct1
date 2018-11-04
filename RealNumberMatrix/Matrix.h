@@ -24,12 +24,12 @@ class Matrix{
 		friend std::ostream& operator << (std::ostream&, Matrix&);
 		friend std::ifstream& operator >> (std::ifstream&, Matrix&);
 		friend std::ofstream& operator << (std::ofstream&, Matrix&);
-		Matrix operator += (Matrix&);
-		Matrix operator -= (Matrix&);
-		Matrix operator *= (Matrix&);
-		Matrix operator += (double);
-		Matrix operator -= (double);
-		Matrix operator *= (double);
+		Matrix& operator += (Matrix&);
+		Matrix& operator -= (Matrix&);
+		Matrix& operator *= (Matrix&);
+		Matrix& operator += (double);
+		Matrix& operator -= (double);
+		Matrix& operator *= (double);
 		Matrix operator + ();
 		Matrix operator - ();
 		friend Matrix operator + (Matrix, Matrix);
@@ -50,6 +50,6 @@ class Matrix{
 	private:
 		int m_rows;
 		int m_columns;
-		matrix Matrice;
+		matrix m_Matrice;
 		
 };
