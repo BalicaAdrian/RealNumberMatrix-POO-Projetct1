@@ -30,6 +30,7 @@ class Matrix{
 		Matrix& operator += (double);
 		Matrix& operator -= (double);
 		Matrix& operator *= (double);
+		Matrix& operator /=(double);
 		Matrix operator + ();
 		Matrix operator - ();
 		friend Matrix operator + (Matrix, Matrix);

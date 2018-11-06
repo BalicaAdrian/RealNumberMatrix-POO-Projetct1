@@ -107,6 +107,17 @@ Matrix& Matrix::operator*=(double number)
 			m_Matrice[i][j] = m_Matrice[i][j] * number;
 	return *this;
 }
+Matrix & Matrix::operator/=(double number)
+{
+	if (number == 0)
+		throw std::runtime_error("Division to 0 is impossible ");
+	else
+		for (int i = 0; i < m_rows; i++)
+			for (int j = 0; j < m_columns; j++)
+
+				m_Matrice[i][j] = m_Matrice[i][j] / number;
+	return *this;
+}
 //Unary operators overloaded
 Matrix Matrix::operator+()
 {
